@@ -32,7 +32,7 @@ class Network(object):
         self.cost = cost
 
     def default_weight_initializer(self):
-        self.weights = [np.random.randn(y,x)*np.sqrt(x) for x,y in zip(self.sizes[:-1],self.sizes[1:])]
+        self.weights = [np.random.randn(y,x)/np.sqrt(x) for x,y in zip(self.sizes[:-1],self.sizes[1:])]
         self.biases = [np.random.randn(x,1) for x in self.sizes[1:]]
 
     def feedforward(self,a):
